@@ -8,7 +8,6 @@ import themes from './src/shared/constants/themes'
 
 import { Provider } from 'react-redux'
 import store from './src/shared/store'
-
 import User from './src/shared/components/User/index.js'
 
 export default function App() {
