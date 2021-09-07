@@ -8,7 +8,7 @@ import themes from './src/shared/constants/themes'
 
 import { Provider } from 'react-redux'
 import store from './src/shared/store'
-import User from './src/shared/components/User/index.js'
+import Movies from './src/shared/components/Movies'
 
 export default function App() {
   return (
@@ -17,7 +17,7 @@ export default function App() {
         <View style={styles.container}>
           <StatusBar style="auto" />
 
-          <User />
+          <Movies />
         </View>
       </ThemeProvider>
     </Provider>
