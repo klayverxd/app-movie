@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux'
 
 import counter from './counter'
-import user from './user'
+import movie from './movies'
 
 const allReducers = combineReducers({
   counter,
-  user,
+  movie,
 })
 
 export default allReducers

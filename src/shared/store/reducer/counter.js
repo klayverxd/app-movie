@@ -12,22 +12,3 @@ export default function counterReducer(state = INITIAL_STATE, action) {
       return state
   }
 }
-
-// ACTIONS
-export const increment = () => {
-  return {
-    type: 'INCREMENT',
-  }
-}
-
-export const decrement = () => {
-  return {
-    type: 'DECREMENT',
-  }
-}
-
-export const reset = () => {
-  return {
-    type: 'RESET',
-  }
-}
