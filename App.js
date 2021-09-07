@@ -1,28 +1,26 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
-import api from './src/services/api.js'
+import { ThemeProvider } from 'styled-components/native'
+import themes from './src/shared/constants/themes'
+
+import { Provider } from 'react-redux'
+import store from './src/shared/store'
+import User from './src/shared/components/User/index.js'
 
 export default function App() {
-  useEffect(() => {
-    async function getMovie() {
-      try {
-        const res = await api.get('3/movie/550')
-        console.log(res)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getMovie()
-  }, [])
-
   return (
-    <View style={styles.container}>
-      <Text>App Movie</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <ThemeProvider theme={themes}>
+        <View style={styles.container}>
+          <StatusBar style="auto" />
+
+          <User />
+        </View>
+      </ThemeProvider>
+    </Provider>
   )
 }
 
