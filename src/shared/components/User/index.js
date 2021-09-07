@@ -18,7 +18,7 @@ export default function User() {
   return (
     <View>
       {loading && <Text>Loading...</Text>}
-      <Text>{user.data.name}</Text>
+      <Text>{user.data?.name}</Text>
       {error && !loading && <Text>{error}</Text>}
     </View>
   )
