@@ -2,12 +2,7 @@ import React from 'react'
 import { Button, Text, View } from 'react-native'
 
 import { useDispatch, useSelector } from 'react-redux'
-
-import {
-  increment,
-  decrement,
-  reset,
-} from '../../shared/store/reducer/counterReducer'
+import { decrement, increment, reset } from '../../store/action/counter'
 
 export default function Counter() {
   const counter = useSelector(state => state.counterReducer.counter)
