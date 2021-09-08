@@ -12,6 +12,13 @@ export default function movieReducer(state = INITIAL_STATE, action) {
       return { ...state, loading: false, movies: action.movies }
     case 'GET_MOVIE_FAILED':
       return { ...state, loading: false, error: action.message }
+
+    case 'SEARCH_MOVIE_REQUESTED':
+      return { ...state, loading: true }
+    case 'SEARCH_MOVIE_SUCSESS':
+      return { ...state, loading: false, movies: action.movies }
+    case 'SEARCH_MOVIE_FAILED':
+      return { ...state, loading: false, error: action.message }
     default:
       return state
   }

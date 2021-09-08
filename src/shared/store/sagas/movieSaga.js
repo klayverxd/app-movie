@@ -15,8 +15,8 @@ function* fetchMovie() {
   }
 }
 
-function* movieSaga() {
+function* watchMovieSaga() {
   yield takeEvery('GET_MOVIE_REQUESTED', fetchMovie)
 }
 
-export default movieSaga
+export default watchMovieSaga

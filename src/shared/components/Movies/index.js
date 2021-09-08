@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+
 import { View, Text, ActivityIndicator, ScrollView, Image } from 'react-native'
 
-import { useDispatch, useSelector } from 'react-redux'
-import { getMovie } from '../../store/action/movie'
 import SearchBar from '../SearchBar'
+
+import { getMovie } from '../../store/action/movie'
 
 export default function Movies() {
   const dispatch = useDispatch()
@@ -18,8 +20,8 @@ export default function Movies() {
 
   return (
     <View>
-      {loading && <ActivityIndicator size="large" color="#999" />}
       <SearchBar />
+      {loading && <ActivityIndicator size="large" color="#999" />}
 
       <ScrollView
         contentContainerStyle={{
