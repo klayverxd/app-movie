@@ -5,3 +5,10 @@ export function getMovie(movies) {
     payload: { movies },
   }
 }
+
+export function searchMovie(search) {
+  return {
+    type: 'SEARCH_MOVIE_REQUESTED',
+    payload: { search },
+  }
+}
