@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 
-import counter from './counter'
+import fontSize from './fontSize'
 import movie from './movies'
 
 const allReducers = combineReducers({
-  counter,
+  fontSize,
   movie,
 })
 
