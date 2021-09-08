@@ -1,59 +1,39 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import {
-  decrementFontSize,
-  incrementFontSize,
-  recoveryFontSize,
-} from '../../../shared/store/ducks/config/font'
+import { Text, View } from 'react-native'
+
+import { useDispatch, useSelector } from 'react-redux'
+import { decrement, increment, reset } from '../../store/action/counter'
 
 import * as S from './styles'
 
-const AccessibilityBtns = () => {
+export default function AccessibilityBtns() {
+  const fontSize = useSelector(state => state.fontSize.fontSize)
+
   const dispatch = useDispatch()
 
-  const aFontPlus = () => {
-    dispatch(incrementFontSize())
-  }
-
-  const aFontMinus = () => {
-    dispatch(decrementFontSize())
-  }
-
-  const aFontRecovery = () => {
-    dispatch(recoveryFontSize())
-  }
-
-  const renderAccessibilityBtns = () => {
-    return (
-      <S.AccessibilityButtons>
-        <S.Button onPress={aFontMinus}>
-          <S.ButtonHeader>
-            <S.LetterText>A-</S.LetterText>
-          </S.ButtonHeader>
-        </S.Button>
-
-        <S.Button onPress={aFontRecovery}>
-          <S.ButtonHeader>
-            <S.LetterText>A</S.LetterText>
-          </S.ButtonHeader>
-        </S.Button>
-
-        <S.Button onPress={aFontPlus}>
-          <S.ButtonHeader>
-            <S.LetterText>A+</S.LetterText>
-          </S.ButtonHeader>
-        </S.Button>
-
-        <S.Button>
-          <S.ButtonHeader>
-            <S.IconMenu />
-          </S.ButtonHeader>
-        </S.Button>
-      </S.AccessibilityButtons>
-    )
-  }
-
-  return <S.HeaderContainer>{renderAccessibilityBtns()}</S.HeaderContainer>
+  return (
+    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+      <Text>FontSize: {fontSize}</Text>
+      <S.ContainerBtns>
+        <S.Button
+          onPress={() => {
+            dispatch(decrement())
+          }}
+          title="A-"
+        />
+        <S.Button
+          onPress={() => {
+            dispatch(reset())
+          }}
+          title="A"
+        />
+        <S.Button
+          onPress={() => {
+            dispatch(increment())
+          }}
+          title="A+"
+        />
+      </S.ContainerBtns>
+    </View>
+  )
 }
-
-export default AccessibilityBtns
