@@ -13,3 +13,11 @@ export const TextInput = styled.TextInput`
 export const SearchButton = styled.Button`
   background-color: #d9d9d9;
 `
+
+export const ContainerButton = styled.TouchableOpacity`
+  background-color: ${({ theme }) => theme.colors.DELL_BLUE};
+
+  padding: 10px;
+
+  justify-content: center;
+`

@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { View, Text, ActivityIndicator, ScrollView, Image } from 'react-native'
 
-import SearchBar from '../SearchBar'
-
 import { getMovie } from '../../store/action/movie'
+
+import * as S from './styles'
 
 export default function Movies() {
   const dispatch = useDispatch()
@@ -20,7 +20,6 @@ export default function Movies() {
 
   return (
     <View>
-      <SearchBar />
       {loading && <ActivityIndicator size="large" color="#999" />}
 
       <ScrollView
@@ -36,7 +35,7 @@ export default function Movies() {
               }}
               style={{ width: 120, height: 160 }}
             />
-            <Text style={{ maxWidth: 120 }}>{movie.title}</Text>
+            <S.MovieTitle style={{ maxWidth: 120 }}>{movie.title}</S.MovieTitle>
           </View>
         ))}
       </ScrollView>

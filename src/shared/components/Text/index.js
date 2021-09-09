@@ -1,35 +1,10 @@
-/* eslint-disable no-nested-ternary */
-/* eslint-disable react/prefer-stateless-function */
-
 import React from 'react'
-import { Text } from 'react-native'
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 
-import { createStyle } from '../../../shared/util/fontStyle'
+import * as S from './styles'
 
-class NewText extends React.Component {
-  render() {
-    const {
-      fontSize = 16,
-      style,
-      delta,
-      capitalize,
-      text,
-      ...rest
-    } = this.props
-    const customStyle = createStyle(style, fontSize + delta)
-    const { children } = this.props
+export default function NewText({ children }) {
+  const fontSize = useSelector(state => state.fontSize.fontSize)
 
-    return (
-      <Text {...rest} style={customStyle} allowFontScaling={false}>
-        {text ? (capitalize ? text.toUpperCase() : text) : children}
-      </Text>
-    )
-  }
+  return <S.Text fontSize={fontSize}>{children}</S.Text>
 }
-
-const mapStateToProps = state => ({
-  delta: state.config.font.delta,
-})
-
-export default connect(mapStateToProps)(NewText)

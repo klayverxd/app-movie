@@ -1,17 +1,15 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import { searchMovie } from '../../store/action/movie'
+
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 import * as S from './styles'
 
 export default function SearchBar() {
   const [search, setSearch] = useState('')
   const dispatch = useDispatch()
-
-  const movies = useSelector(state => state.movie.movies)
-  const loading = useSelector(state => state.movie.loading)
-  const error = useSelector(state => state.movie.error)
 
   return (
     <S.Container>
@@ -20,10 +18,9 @@ export default function SearchBar() {
         value={search}
         placeholder="Procurar filme"
       />
-      <S.SearchButton
-        onPress={() => dispatch(searchMovie(search))}
-        title="search"
-      />
+      <S.ContainerButton onPress={() => dispatch(searchMovie(search))}>
+        <Icon name="search" size={20} color="#FFF" />
+      </S.ContainerButton>
     </S.Container>
   )
 }
