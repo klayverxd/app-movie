@@ -1,5 +1,5 @@
 const themes = {
-  Colors: {
+  colors: {
     GRAY: '#858585',
     LIGHT_GRAY: '#e4e4e4',
     MEDIUM_GRAY: '#eeeeee',
