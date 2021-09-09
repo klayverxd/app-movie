@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { View, Text, ActivityIndicator, ScrollView, Image } from 'react-native'
 
-import { getMovie } from '../../store/action/movie'
+import { getMovies } from '../../store/action/movie'
 
 import * as S from './styles'
 
@@ -15,7 +15,7 @@ export default function Movies() {
   const error = useSelector(state => state.movie.error)
 
   useEffect(() => {
-    dispatch(getMovie())
+    dispatch(getMovies())
   }, [])
 
   return (

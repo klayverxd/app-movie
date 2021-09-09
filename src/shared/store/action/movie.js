@@ -1,8 +1,7 @@
 // ACTIONS
-export function getMovie(movies) {
+export function getMovies() {
   return {
     type: 'GET_MOVIE_REQUESTED',
-    payload: { movies },
   }
 }
 
