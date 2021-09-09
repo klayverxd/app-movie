@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { decrement, increment, reset } from '../../store/action/counter'
@@ -13,26 +13,29 @@ export default function AccessibilityBtns() {
 
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-      <Text>FontSize: {fontSize}</Text>
+      <S.Text>APP-MOVIE: {fontSize}</S.Text>
       <S.ContainerBtns>
         <S.Button
           onPress={() => {
             dispatch(decrement())
           }}
-          title="A-"
-        />
+        >
+          <S.LetterText>A-</S.LetterText>
+        </S.Button>
         <S.Button
           onPress={() => {
             dispatch(reset())
           }}
-          title="A"
-        />
+        >
+          <S.LetterText>A</S.LetterText>
+        </S.Button>
         <S.Button
           onPress={() => {
             dispatch(increment())
           }}
-          title="A+"
-        />
+        >
+          <S.LetterText>A+</S.LetterText>
+        </S.Button>
       </S.ContainerBtns>
     </View>
   )
