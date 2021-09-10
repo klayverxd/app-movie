@@ -22,21 +22,23 @@ export default function Movies() {
     <View>
       {loading && <ActivityIndicator size="large" color="#999" />}
 
+      <S.Text>Most Popular</S.Text>
       <ScrollView
         contentContainerStyle={{
           alignItems: 'center',
         }}
+        horizontal={true}
       >
         {movies.map(movie => (
-          <View style={{ flex: 1, margin: 12 }} key={movie.id}>
+          <S.ContainerCard key={movie.id}>
             <Image
               source={{
                 uri: `https://image.tmdb.org/t/p/w200${movie.poster_path}`,
               }}
               style={{ width: 120, height: 160 }}
             />
-            <S.MovieTitle style={{ maxWidth: 120 }}>{movie.title}</S.MovieTitle>
-          </View>
+            <S.MovieTitle>{movie.title}</S.MovieTitle>
+          </S.ContainerCard>
         ))}
       </ScrollView>
 
