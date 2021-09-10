@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
 
 export const Container = styled.View`
-  background-color: ${({ theme }) => theme.colors.LIGHT_BLUE};
+  background-color: ${({ theme }) => theme.colors.DELL_BLUE};
 
   flex-direction: row;
 

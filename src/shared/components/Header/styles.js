@@ -4,7 +4,7 @@ import TextComponent from '../Text'
 
 export const Container = styled.View`
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.DELL_BLUE};
+  background-color: ${({ theme }) => theme.colors.PROGRESSBAR};
 
   flex-direction: row;
 
