@@ -3,7 +3,8 @@ import { call, put, takeLatest } from 'redux-saga/effects'
 import api from '../../../services/api'
 
 function getApi(search) {
-  return api.get('/3/search/movie', {
+  const endpoint = search.trim() ? '/3/search/movie' : '/3/movie/popular'
+  return api.get(endpoint, {
     params: { query: search },
   })
 }
