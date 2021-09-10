@@ -16,7 +16,8 @@ export default function SearchBar() {
       <S.TextInput
         onChangeText={setSearch}
         value={search}
-        placeholder="Procurar filme"
+        placeholder="Search movie..."
+        placeholderTextColor="#FFF"
       />
       <S.ContainerButton onPress={() => dispatch(searchMovie(search))}>
         <Icon name="search" size={20} color="#FFF" />

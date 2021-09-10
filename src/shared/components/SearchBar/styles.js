@@ -1,21 +1,31 @@
 import styled from 'styled-components/native'
 
 export const Container = styled.View`
+  background-color: ${({ theme }) => theme.colors.LIGHT_BLUE};
+
   flex-direction: row;
+
+  padding: 12px 18px;
 `
 
 export const TextInput = styled.TextInput`
-  background-color: #d9d9d9;
-  padding: 5px 7px;
-  flex: 1;
-`
+  border: 2px solid white;
+  border-radius: 50px;
 
-export const SearchButton = styled.Button`
-  background-color: #d9d9d9;
+  color: ${({ theme }) => theme.colors.WHITE};
+
+  font-size: 18px;
+
+  flex: 1;
+
+  margin-right: 12px;
+
+  padding: 5px 12px;
 `
 
 export const ContainerButton = styled.TouchableOpacity`
-  background-color: ${({ theme }) => theme.colors.DELL_BLUE};
+  border: 2px solid white;
+  border-radius: 50px;
 
   padding: 10px;
 
