@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
 
 export const Container = styled.View`
-  background-color: ${({ theme }) => theme.colors.DELL_BLUE};
+  background-color: ${({ theme }) => theme.SECONDARY_HEADER_COLOR};
 
   flex-direction: row;
 
@@ -9,10 +9,10 @@ export const Container = styled.View`
 `
 
 export const TextInput = styled.TextInput`
-  border: 2px solid white;
+  border: 2px solid #fff;
   border-radius: 50px;
 
-  color: ${({ theme }) => theme.colors.WHITE};
+  color: #fff;
 
   font-size: 18px;
 
@@ -24,7 +24,7 @@ export const TextInput = styled.TextInput`
 `
 
 export const ContainerButton = styled.TouchableOpacity`
-  border: 2px solid white;
+  border: 2px solid #fff;
   border-radius: 50px;
 
   padding: 10px;

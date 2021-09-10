@@ -5,7 +5,7 @@ export const ContainerBtns = styled.View`
 `
 
 export const LetterText = styled.Text`
-  color: ${({ theme }) => theme.colors.WHITE};
+  color: #fff;
   font-weight: bold;
 `
 

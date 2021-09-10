@@ -4,7 +4,7 @@ import TextComponent from '../Text'
 
 export const Container = styled.View`
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.PROGRESSBAR};
+  background-color: ${({ theme }) => theme.PRIMARY_HEADER_COLOR};
 
   flex-direction: row;
 
@@ -14,7 +14,8 @@ export const Container = styled.View`
 `
 
 export const Text = styled(TextComponent)`
+  color: #fff;
+
   font-size: 22px;
-  color: ${({ theme }) => theme.colors.WHITE};
   font-weight: bold;
 `

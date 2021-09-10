@@ -9,8 +9,7 @@ export const ContainerSection = styled.View`
 `
 
 export const HeaderSection = styled.View`
-  background-color: ${({ theme }) => theme.colors.LIGHT_BLUE};
-  color: ${({ theme }) => theme.colors.WHITE};
+  background-color: ${({ theme }) => theme.PRIMARY_HEADER_SECTION_COLOR};
 
   height: 40px;
 
@@ -21,7 +20,7 @@ export const HeaderSection = styled.View`
 `
 
 export const TextHeaderSection = styled(TextComponent)`
-  color: ${({ theme }) => theme.colors.WHITE};
+  color: #fff;
 
   font-weight: bold;
 `
@@ -34,5 +33,15 @@ export const ContainerCard = styled.View`
 `
 
 export const MovieTitle = styled(TextComponent)`
+  color: #454545;
+
   max-width: 130px;
+`
+
+export const ErrorText = styled(TextComponent)`
+  color: #454545;
+
+  text-align: center;
+
+  padding: 10px;
 `
