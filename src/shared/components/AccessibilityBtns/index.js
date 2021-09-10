@@ -7,13 +7,13 @@ import { decrement, increment, reset } from '../../store/action/counter'
 import * as S from './styles'
 
 export default function AccessibilityBtns() {
-  const fontSize = useSelector(state => state.fontSize.fontSize)
+  const delta = useSelector(state => state.fontSize.delta)
 
   const dispatch = useDispatch()
 
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-      <S.Text>APP-MOVIE: {fontSize}</S.Text>
+      <S.Text>APP-MOVIE: {delta}</S.Text>
       <S.ContainerBtns>
         <S.Button
           onPress={() => {

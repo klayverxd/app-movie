@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux'
 
 import * as S from './styles'
 
-export default function NewText({ children, style }) {
-  const fontSize = useSelector(state => state.fontSize.fontSize)
+export default function NewText({ children, style, ...rest }) {
+  const delta = useSelector(state => state.fontSize.delta)
 
   return (
-    <S.Text fontSize={fontSize} style={style}>
+    <S.Text delta={delta} style={style} numberOfLines={delta} {...rest}>
       {children}
     </S.Text>
   )

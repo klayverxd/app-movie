@@ -1,17 +1,15 @@
-export const INITIAL_STATE = { fontSize: 16 }
+export const INITIAL_STATE = { delta: 0 } // -4 ~ 4
 
 export default function fsReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'INCREMENT':
-      const newFsPlus =
-        state.fontSize < 20 ? state.fontSize + 1 : state.fontSize
-      return { fontSize: newFsPlus }
+      const newDeltaPlus = state.delta < 4 ? state.delta + 1 : state.delta
+      return { delta: newDeltaPlus }
     case 'DECREMENT':
-      const newFsMinus =
-        state.fontSize > 12 ? state.fontSize - 1 : state.fontSize
-      return { fontSize: newFsMinus }
+      const newDeltaMinus = state.delta > -4 ? state.delta - 1 : state.delta
+      return { delta: newDeltaMinus }
     case 'RESET':
-      return { fontSize: INITIAL_STATE.fontSize }
+      return { delta: INITIAL_STATE.delta }
     default:
       return state
   }
