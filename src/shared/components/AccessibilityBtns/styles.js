@@ -12,7 +12,7 @@ export const ContainerBtns = styled.View`
 
 export const Text = styled(TextComponent)`
   color: ${({ theme }) => theme.colors.DARK_GRAY};
-  background-color: ${({ theme }) => theme.colors.DARK_GRAY};
+  background-color: ${({ theme }) => theme.colors.DELL_BLUE};
 `
 
 export const LetterText = styled.Text`
