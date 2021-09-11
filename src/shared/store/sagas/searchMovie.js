@@ -1,19 +1,17 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
 
-import api from '../../../services/api'
-
-function getApi(search) {
-  const endpoint = search.trim() ? '/3/search/movie' : '/3/movie/popular'
-  return api.get(endpoint, {
-    params: { query: search },
-  })
-}
+import { getFilteredMovies } from '../../../services/api'
 
 function* searchMovie({ payload: { search } }) {
   try {
-    const movies = yield call(getApi, search)
+    const filteredMovies = yield call(getFilteredMovies, search)
+    const hasMovies = !filteredMovies.lenght
 
-    yield put({ type: 'SEARCH_MOVIE_SUCSESS', movies: movies.data.results })
+    yield put({
+      type: 'SEARCH_MOVIE_SUCSESS',
+      filteredMovies: filteredMovies.data.results,
+      hasMovies: hasMovies,
+    })
   } catch (error) {
     yield put({ type: 'SEARCH_MOVIE_FAILED', message: error.message })
   }
