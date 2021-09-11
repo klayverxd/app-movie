@@ -1,16 +1,23 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from 'react-native'
+import { Alert, Modal } from 'react-native'
 
-import { setVisibleFalse } from '../../store/action/modal'
+import { setModalVisible } from '../../store/action/modal'
+
+import * as S from './styles'
 
 export default function DetailsModal() {
-  const modalVisible = useSelector(state => state.modal.visible)
   const dispatch = useDispatch()
 
+  const modalVisible = useSelector(state => state.modalReducer.visible)
+  const title = useSelector(state => state.modalReducer.title)
+  const image = useSelector(state => state.modalReducer.image)
+  const release_date = useSelector(state => state.modalReducer.release_date)
+  const vote_average = useSelector(state => state.modalReducer.vote_average)
+  const overview = useSelector(state => state.modalReducer.overview)
+
   return (
-    // <View style={styles.centeredView}>
     <Modal
       animationType="slide"
       transparent={true}
@@ -20,68 +27,28 @@ export default function DetailsModal() {
         setModalVisible(!modalVisible)
       }}
     >
-      <View style={styles.centeredView}>
-        <View style={styles.modalView}>
-          <Text style={styles.modalText}>Hello World!</Text>
-          <Pressable
-            style={[styles.button, styles.buttonClose]}
-            onPress={() => dispatch(setVisibleFalse())}
+      <S.ContainerModal>
+        <S.ContentModal>
+          <S.ContainerHeader>
+            <S.MovieImage
+              source={{
+                uri: `https://image.tmdb.org/t/p/w200${image}`,
+              }}
+            />
+            <S.ContentHeader>
+              <S.MovieTitle numberOfLines={3}>Title: {title}</S.MovieTitle>
+              <S.Details>Release date: {release_date}</S.Details>
+              <S.Details>Vote average: {vote_average}</S.Details>
+            </S.ContentHeader>
+          </S.ContainerHeader>
+          <S.OverviewText>Overview: {overview}</S.OverviewText>
+          <S.ButtonClose
+            onPress={() => dispatch(setModalVisible({ visible: false }))}
           >
-            <Text style={styles.textStyle}>Hide Modal</Text>
-          </Pressable>
-        </View>
-      </View>
+            <S.ButtonText>Close</S.ButtonText>
+          </S.ButtonClose>
+        </S.ContentModal>
+      </S.ContainerModal>
     </Modal>
-    //   <Pressable
-    //     style={[styles.button, styles.buttonOpen]}
-    //     onPress={() => setModalVisible(true)}
-    //   >
-    //     <Text style={styles.textStyle}>Show Modal</Text>
-    //   </Pressable>
-    // </View>
   )
 }
-
-const styles = StyleSheet.create({
-  centeredView: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 22,
-  },
-  modalView: {
-    margin: 20,
-    backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 35,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
-  },
-  buttonOpen: {
-    backgroundColor: '#F194FF',
-  },
-  buttonClose: {
-    backgroundColor: '#2196F3',
-  },
-  textStyle: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: 'center',
-  },
-})

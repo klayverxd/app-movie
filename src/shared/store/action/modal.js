@@ -1,12 +1,19 @@
 // ACTIONS
-export const setVisibleTrue = () => {
+export function setModalVisible({
+  visible,
+  title,
+  image,
+  release_date,
+  vote_average,
+  overview,
+}) {
   return {
-    type: 'SET_VISIBLE_TRUE',
-  }
-}
-
-export const setVisibleFalse = () => {
-  return {
-    type: 'SET_VISIBLE_FALSE',
+    type: 'SET_VISIBLE',
+    visible: visible,
+    title: title,
+    image: image,
+    release_date: release_date,
+    vote_average: vote_average,
+    overview: overview,
   }
 }

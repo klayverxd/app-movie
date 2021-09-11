@@ -23,7 +23,7 @@ export const TextHeaderSection = styled(TextComponent)`
   font-weight: bold;
 `
 
-export const ContainerCard = styled.View`
+export const ContainerCard = styled.TouchableOpacity`
   flex: 1;
   margin-right: 12px;
 

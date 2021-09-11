@@ -1,11 +1,27 @@
-export const INITIAL_STATE = { visible: false }
+export const INITIAL_STATE = {
+  visible: false,
+  title: '',
+  image: '',
+  release_date: 0,
+  vote_average: 0,
+  overview: '',
+}
 
-export default function modalReducer(state = INITIAL_STATE, action) {
-  switch (action.type) {
-    case 'SET_VISIBLE_TRUE':
-      return { visible: true }
-    case 'SET_VISIBLE_FALSE':
-      return { visible: false }
+export default function modalReducer(
+  state = INITIAL_STATE,
+  { type, visible, title, image, release_date, vote_average, overview }
+) {
+  switch (type) {
+    case 'SET_VISIBLE':
+      return {
+        visible: visible,
+        title: title,
+        image: image,
+        release_date: release_date,
+        vote_average: vote_average,
+        overview: overview,
+      }
+
     default:
       return state
   }
