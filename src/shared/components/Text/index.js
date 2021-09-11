@@ -7,7 +7,7 @@ export default function NewText({ children, style, ...rest }) {
   const delta = useSelector(state => state.fontSize.delta)
 
   return (
-    <S.Text delta={delta} style={style} numberOfLines={delta} {...rest}>
+    <S.Text delta={delta} style={style} {...rest}>
       {children}
     </S.Text>
   )
