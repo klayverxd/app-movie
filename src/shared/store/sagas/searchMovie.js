@@ -7,8 +7,6 @@ function* searchMovie({ payload: { search } }) {
     const filteredMovies = yield call(getFilteredMovies, search)
     const hasMovies = !!filteredMovies.data.results.length
 
-    console.log('searchMovie-hasMovies', hasMovies)
-
     yield put({
       type: 'SEARCH_MOVIE_SUCSESS',
       filteredMovies: filteredMovies.data.results,
