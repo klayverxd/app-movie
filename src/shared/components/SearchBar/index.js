@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
-import { searchMovie } from '../../store/action/movie'
+import { getMovies, searchMovie } from '../../store/action/movie'
 
 import Icon from 'react-native-vector-icons/FontAwesome'
 
@@ -19,7 +19,11 @@ export default function SearchBar() {
         placeholder="Search movie..."
         placeholderTextColor="#FFF"
       />
-      <S.ContainerButton onPress={() => dispatch(searchMovie(search))}>
+      <S.ContainerButton
+        onPress={() =>
+          search.trim() ? dispatch(searchMovie(search)) : dispatch(getMovies())
+        }
+      >
         <Icon name="search" size={20} color="#FFF" />
       </S.ContainerButton>
     </S.Container>
