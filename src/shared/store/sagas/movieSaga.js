@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from 'redux-saga/effects'
+import { all, call, put, takeEvery } from 'redux-saga/effects'
 
 import {
   getActionMovies,
@@ -7,12 +7,19 @@ import {
   getScienceFictionMovies,
 } from '../../../services/api'
 
-function* fetchMovie() {
+function* fetchMovies() {
   try {
-    const actionMovies = yield call(getActionMovies)
-    const documentaryMovies = yield call(getDocumentaryMovies)
-    const animationMovies = yield call(getAnimationMovies)
-    const scienceFictionMovies = yield call(getScienceFictionMovies)
+    const [
+      actionMovies,
+      documentaryMovies,
+      animationMovies,
+      scienceFictionMovies,
+    ] = yield all([
+      call(getActionMovies),
+      call(getDocumentaryMovies),
+      call(getAnimationMovies),
+      call(getScienceFictionMovies),
+    ])
 
     yield put({
       type: 'GET_MOVIE_SUCSESS',
@@ -27,7 +34,7 @@ function* fetchMovie() {
 }
 
 function* watchMovieSaga() {
-  yield takeEvery('GET_MOVIE_REQUESTED', fetchMovie)
+  yield takeEvery('GET_MOVIE_REQUESTED', fetchMovies)
 }
 
 export default watchMovieSaga
