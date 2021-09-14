@@ -1,5 +1,5 @@
 <div align="center">
-  <img src=".github/logo.png" alt="Gatito logo" width="300px">
+  <img src=".github/logo.png" alt="APP MOVIE logo" width="300px">
 </div>
 
 ## APP MOVIE
