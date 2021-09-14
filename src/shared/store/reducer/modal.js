@@ -1,3 +1,7 @@
+export const Types = {
+  SET_VISIBLE: 'SET_VISIBLE',
+}
+
 export const INITIAL_STATE = {
   visible: false,
   title: '',
@@ -12,7 +16,7 @@ export default function modalReducer(
   { type, visible, title, image, release_date, vote_average, overview }
 ) {
   switch (type) {
-    case 'SET_VISIBLE':
+    case Types.SET_VISIBLE:
       return {
         visible: visible,
         title: title,

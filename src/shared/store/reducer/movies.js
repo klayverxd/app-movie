@@ -1,3 +1,13 @@
+export const Types = {
+  GET_MOVIE_REQUESTED: 'GET_MOVIE_REQUESTED',
+  GET_MOVIE_SUCSESS: 'GET_MOVIE_SUCSESS',
+  GET_MOVIE_FAILED: 'GET_MOVIE_FAILED',
+
+  SEARCH_MOVIE_REQUESTED: 'SEARCH_MOVIE_REQUESTED',
+  SEARCH_MOVIE_SUCSESS: 'SEARCH_MOVIE_SUCSESS',
+  SEARCH_MOVIE_FAILED: 'SEARCH_MOVIE_FAILED',
+}
+
 export const INITIAL_STATE = {
   actionMovies: [],
   animationMovies: [],
@@ -12,9 +22,9 @@ export const INITIAL_STATE = {
 
 export default function movieReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case 'GET_MOVIE_REQUESTED':
+    case Types.GET_MOVIE_REQUESTED:
       return { ...state, loading: true, hasFilter: false }
-    case 'GET_MOVIE_SUCSESS':
+    case Types.GET_MOVIE_SUCSESS:
       return {
         ...state,
         loading: false,
@@ -25,12 +35,12 @@ export default function movieReducer(state = INITIAL_STATE, action) {
         hasFilter: false,
         hasMovies: true,
       }
-    case 'GET_MOVIE_FAILED':
+    case Types.GET_MOVIE_FAILED:
       return { ...state, loading: false, error: action.message }
 
-    case 'SEARCH_MOVIE_REQUESTED':
+    case Types.SEARCH_MOVIE_REQUESTED:
       return { ...state, loading: true, hasFilter: true }
-    case 'SEARCH_MOVIE_SUCSESS':
+    case Types.SEARCH_MOVIE_SUCSESS:
       return {
         ...state,
         loading: false,
@@ -38,7 +48,7 @@ export default function movieReducer(state = INITIAL_STATE, action) {
         hasFilter: true,
         hasMovies: action.hasMovies,
       }
-    case 'SEARCH_MOVIE_FAILED':
+    case Types.SEARCH_MOVIE_FAILED:
       return { ...state, loading: false, error: action.message }
     default:
       return state
