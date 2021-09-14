@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Text, ActivityIndicator } from 'react-native'
+import { ActivityIndicator } from 'react-native'
 
 import { getMovies } from '../../store/action/movie'
 
@@ -32,33 +32,43 @@ export default function Movies() {
     <S.Container>
       {loading && <ActivityIndicator size="large" color="#999" />}
 
-      {!hasFilter && !loading && (
+      {error && !loading ? (
+        <S.ErrorText>{error}</S.ErrorText>
+      ) : (
         <>
-          <SectionMovies sectionName="Action Movies" movies={actionMovies} />
-          <SectionMovies
-            sectionName="Animation Movies"
-            movies={animationMovies}
-          />
-          <SectionMovies
-            sectionName="Science Fiction Movies"
-            movies={scienceFictionMovies}
-          />
-          <SectionMovies
-            sectionName="Documentary Movies"
-            movies={documentaryMovies}
-          />
+          {!hasFilter && !loading && (
+            <>
+              <SectionMovies
+                sectionName="Action Movies"
+                movies={actionMovies}
+              />
+              <SectionMovies
+                sectionName="Animation Movies"
+                movies={animationMovies}
+              />
+              <SectionMovies
+                sectionName="Science Fiction Movies"
+                movies={scienceFictionMovies}
+              />
+              <SectionMovies
+                sectionName="Documentary Movies"
+                movies={documentaryMovies}
+              />
+            </>
+          )}
+
+          {hasFilter && hasMovies && !loading && (
+            <SectionMovies
+              sectionName="Filtered Movies"
+              movies={filteredMovies}
+            />
+          )}
+
+          {hasFilter && !hasMovies && !loading && (
+            <S.ErrorText>No results...</S.ErrorText>
+          )}
         </>
       )}
-
-      {hasFilter && hasMovies && !loading && (
-        <SectionMovies sectionName="Filtered Movies" movies={filteredMovies} />
-      )}
-
-      {hasFilter && !hasMovies && !loading && (
-        <S.ErrorText>No results...</S.ErrorText>
-      )}
-
-      {error && !loading && <Text>{error}</Text>}
     </S.Container>
   )
 }
