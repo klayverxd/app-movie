@@ -1,6 +1,6 @@
 import { all, call, put, takeEvery } from 'redux-saga/effects'
 
-import { getMoviesByGenres } from '../../../services/api'
+import { getMoviesByGenres } from '../../../services/requests'
 
 const genres = {
   action: 28,

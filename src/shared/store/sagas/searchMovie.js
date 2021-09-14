@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
 
-import { getFilteredMovies } from '../../../services/api'
+import { getFilteredMovies } from '../../../services/requests'
 
 function* searchMovie({ payload: { search } }) {
   try {
