@@ -1,11 +1,13 @@
 import { all, call, put, takeEvery } from 'redux-saga/effects'
 
-import {
-  getActionMovies,
-  getAnimationMovies,
-  getDocumentaryMovies,
-  getScienceFictionMovies,
-} from '../../../services/api'
+import { getMoviesByGenres } from '../../../services/api'
+
+const genres = {
+  action: 28,
+  documentary: 99,
+  animation: 16,
+  scienceFiction: 878,
+}
 
 function* fetchMovies() {
   try {
@@ -15,10 +17,10 @@ function* fetchMovies() {
       animationMovies,
       scienceFictionMovies,
     ] = yield all([
-      call(getActionMovies),
-      call(getDocumentaryMovies),
-      call(getAnimationMovies),
-      call(getScienceFictionMovies),
+      call(getMoviesByGenres, genres.action),
+      call(getMoviesByGenres, genres.documentary),
+      call(getMoviesByGenres, genres.animation),
+      call(getMoviesByGenres, genres.scienceFiction),
     ])
 
     yield put({
