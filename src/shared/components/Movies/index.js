@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 
-import { ActivityIndicator } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { getMovies } from '../../store/action/movie'
 
 import SectionMovies from '../SectionMovies'
+import Loading from '../Loading'
 
 import * as S from './styles'
 
@@ -30,7 +30,7 @@ export default function Movies() {
 
   return (
     <S.Container>
-      {loading && <ActivityIndicator size="large" color="#999" />}
+      {loading && <Loading text="Loading movies..." />}
 
       {error && !loading ? (
         <S.ErrorText>{error}</S.ErrorText>
