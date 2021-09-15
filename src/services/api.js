@@ -1,22 +1,14 @@
 import axios from 'axios'
 
+import { BASE_URL } from '../shared/constants/api'
+
+import { API_KEY } from '@env'
+
 const api = axios.create({
-  baseURL: 'https://api.themoviedb.org',
+  baseURL: BASE_URL,
   params: {
-    api_key: '9396d75fb7c28ee5e1712096b5142a76',
+    api_key: API_KEY,
   },
 })
-
-export function getFilteredMovies(search) {
-  return api.get('/3/search/movie', {
-    params: { query: search },
-  })
-}
-
-export function getMoviesByGenres(genres) {
-  return api.get('/3/discover/movie', {
-    params: { with_genres: genres },
-  })
-}
 
 export default api

@@ -12,6 +12,7 @@ import rootSaga from './sagas'
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
+  blacklist: ['movie'],
 }
 
 const persistedReducer = persistReducer(persistConfig, allReducers)
