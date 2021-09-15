@@ -1,4 +1,4 @@
-export const Types = {
+export const types = {
   SET_VISIBLE: 'SET_VISIBLE',
 }
 
@@ -16,7 +16,7 @@ export default function modalReducer(
   { type, visible, title, image, release_date, vote_average, overview }
 ) {
   switch (type) {
-    case Types.SET_VISIBLE:
+    case types.SET_VISIBLE:
       return {
         visible: visible,
         title: title,

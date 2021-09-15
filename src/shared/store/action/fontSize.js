@@ -1,18 +1,19 @@
-// ACTIONS
+import { types } from '../reducer/fontSize'
+
 export const increment = () => {
   return {
-    type: 'INCREMENT',
+    type: types.INCREMENT,
   }
 }
 
 export const decrement = () => {
   return {
-    type: 'DECREMENT',
+    type: types.DECREMENT,
   }
 }
 
 export const reset = () => {
   return {
-    type: 'RESET',
+    type: types.RESET,
   }
 }

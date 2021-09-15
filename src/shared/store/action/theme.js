@@ -1,7 +1,8 @@
-// ACTIONS
+import { types } from '../reducer/theme'
+
 export function switchTheme(theme) {
   return {
-    type: 'SWITCH_THEME',
+    type: types.SWITCH_THEME,
     theme: theme,
   }
 }

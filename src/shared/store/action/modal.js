@@ -1,4 +1,5 @@
-// ACTIONS
+import { types } from '../reducer/modal'
+
 export function setModalVisible({
   visible,
   title,
@@ -8,7 +9,7 @@ export function setModalVisible({
   overview,
 }) {
   return {
-    type: 'SET_VISIBLE',
+    type: types.SET_VISIBLE,
     visible: visible,
     title: title,
     image: image,

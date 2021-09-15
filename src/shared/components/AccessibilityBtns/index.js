@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { decrement, increment, reset } from '../../store/action/counter'
+import { decrement, increment, reset } from '../../store/action/fontSize'
 
 import { defaultTheme, contrastTheme } from '../../constants/themes'
 import { switchTheme } from '../../store/action/theme'

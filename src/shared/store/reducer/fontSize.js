@@ -1,4 +1,4 @@
-export const Types = {
+export const types = {
   INCREMENT: 'INCREMENT',
   DECREMENT: 'DECREMENT',
   RESET: 'RESET',
@@ -8,13 +8,13 @@ export const INITIAL_STATE = { delta: 0 } // -4 ~ 4
 
 export default function fsReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case Types.INCREMENT:
+    case types.INCREMENT:
       const newDeltaPlus = state.delta < 4 ? state.delta + 1 : state.delta
       return { delta: newDeltaPlus }
-    case Types.DECREMENT:
+    case types.DECREMENT:
       const newDeltaMinus = state.delta > -4 ? state.delta - 1 : state.delta
       return { delta: newDeltaMinus }
-    case Types.RESET:
+    case types.RESET:
       return { delta: INITIAL_STATE.delta }
     default:
       return state
